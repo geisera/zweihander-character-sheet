@@ -1,0 +1,287 @@
+body {
+    margin: 0;
+    margin-top: 30px;
+    background-color: #212A31;
+    color: #D3D9D4;
+    font-family: consolas;
+    /* visibility: hidden; */
+    display: flex;
+}
+
+button {
+    background-color: transparent;
+    padding: 8px 30px;
+    margin: 10px;
+    color: #f4f6f9;
+    text-decoration: none;
+    border: 1px solid #f4f6f9;
+    border-radius: 4px;
+}
+
+button:hover {
+    border-color: #64a9fb;
+    cursor: pointer;
+    color: #64a9fb;
+}
+
+input[type=text] {
+    width: 25px;
+    text-align: center;
+    font-weight: bold;
+    color: #D3D9D4;
+    background-color: #212A31;
+}
+
+h1 {
+    text-align: left;
+}
+
+select {
+    background-color: #212A31;
+    color: #D3D9D4;
+    border: 1px solid #D3D9D4;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-family: consolas;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+#attribute-button-group {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    max-width: 500px;
+    margin-top: 20px;
+}
+
+.attribute-button {
+    padding: 10px;
+    font-weight: bold;
+    background-color: #212A31;
+    color: #D3D9D4;
+    border: 1px solid #D3D9D4;
+    border-radius: 6px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.attribute-button:hover {
+    border-color: #64a9fb;
+    color: #64a9fb;
+}
+
+
+.canvas-container {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center;    /* Centers vertically */
+}
+
+.sidebar {
+    width: 200px;
+    height: 75vh; /* Sets the height to 100% of the viewport height */
+    color: white;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    padding: 15px;
+    border: 1px solid #D3D9D4 ; 
+    border-radius: 15px;
+    box-shadow: 4px 4px 30px rgba(255, 255, 255, 0.2);
+}
+
+.sidebar h2 {
+    text-align: center;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 10px 0;
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+}
+
+.sidebar ul li a:hover {
+    /* background-color: #575757; */
+    text-shadow: 0px 0px 20px white;
+}
+
+.sub-view {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px 30px; /* Match parent container padding */
+    box-sizing: border-box;
+    background-color: inherit; /* Optional: keep visual continuity */
+}
+
+#character-sheet-view {
+    height: 95vh;               /* or any fixed height */
+    overflow-y: auto;           /* enables vertical scroll */
+    overflow-x: hidden;         /* optional, hides horizontal scroll */
+}
+.container {
+    position: relative;
+    height:95vh;
+    width: 100%; /* Make sure the div takes up the full width of its container */
+    overflow: hidden;
+    overflow-wrap: break-word; /* Wrap long words to avoid overflow */
+    box-sizing: border-box; /* Include padding and border in the element's total width/height */
+    margin-right: 10px;
+    margin-bottom: 20px;
+    padding: 30px;
+    border: 1px solid #D3D9D4 ; /* Optional: add a border for better visibility */
+    border-radius: 15px; /* Rounds the corners of the border */
+    box-shadow: 4px 4px 30px rgba(255, 255, 255, 0.2); /* White box-shadow with 25% opacity */
+}
+
+.container span {
+    display: inline-block; /* Keep the span inline but allow it to respect the container's boundaries */
+    max-width: 100%; /* Prevent span elements from exceeding the container's width */
+    word-break: break-word; /* Ensure long words or URLs break to fit within the container */
+}
+
+.fadeIn {
+    animation: fadeIn 0.2s ease-in-out; /* Start animation immediately */
+}
+
+.fadeOut {
+    animation: fadeOut 0.2s ease forwards; /* Start animation immediately */
+}
+
+.form {
+    margin-top: 20px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.hover-text:hover {
+    font-size: 20px;   
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.main {
+    margin: 0;
+    padding: 0;
+}
+
+.range {
+    text-align: center;
+}
+
+.true {
+    color: green;
+    font-size: 100px;
+    font-weight: bold;
+    transform: rotate(360deg);
+    animation-name: spin;
+    animation-duration: 1s;
+}
+
+.false {
+    color: #D3D9D4;
+    animation-name: wrong;
+    animation-duration: 2s;
+}
+
+.pulse-text {
+    font-size: 24px;
+    font-weight: bold;
+    animation: pulse 1.5s infinite;
+}
+
+.textShadowAnimation {
+    font-weight: bolder;
+    animation: textShadowAnimation 1.0s infinite; /* Start animation immediately */
+}
+
+#character-name {
+    width: 300px;
+    padding: 6px 12px;
+    font-size: 16px;
+}
+  
+@keyframes pulse {
+   0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: scale(1.1);
+      opacity: 0.7;
+    }
+    100% {
+      transform: scale(1);
+      opacity: 1;
+    }
+ }  
+
+@keyframes wrong {
+    from {
+           color: #D3D9D4; /* Start at 0 degrees */
+       }
+       to {
+        color: red; /* End at 360 degrees */
+       }
+   }
+
+@keyframes spin {
+ from {
+        transform: rotate(0deg); /* Start at 0 degrees */
+    }
+    to {
+        transform: rotate(360deg); /* End at 360 degrees */
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Start with transparent */
+    }
+    to {
+        opacity: 1; /* Fade to fully visible */
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1; /* Start with fuly visible */
+    }
+    to {
+        opacity: 0; /* Fade to transparent */
+    }
+}
+
+@keyframes textShadowAnimation {
+    0% {
+        text-shadow: 0px 0px 1px white;
+    }
+    50% {
+        text-shadow: 0px 0px 15px white;
+    }
+    100% {
+        text-shadow: 0px 0px 1px white;
+    }
+}
+
+ /* hide the print screen button on print */
+@media print {
+  #print-btn {                
+    display: none !important;
+  }
+}
