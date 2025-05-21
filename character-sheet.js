@@ -178,7 +178,6 @@ function rollCharacterStats() {
     document.getElementById('print-btn').style.display = 'inline-block';
     document.getElementById('roll-btn').style.display = 'none';
     document.getElementById('forward-btn').style.display = 'none';
-
 }
 
 function renderStatsTable() {
@@ -872,7 +871,7 @@ const drawbacksMap = {
     },
     melancholicTemperament: {
         name: 'melancholic temperament',
-        description: 'is prone to fits of fatigue, and often suffers from phantom pains in the muscles. And, is difficult to rouse from war-weariness requiring twice the normal medication required to lift the spirits',
+        description: 'is prone to fits of fatigue, and often suffers from phantom pains in the muscles. And, is difficult to rouse from war-weariness requiring twice the normal medication to lift the spirits',
         effect: 'Whenever you use Smelling Salts, you must use two instead of one. Using the additional dose of Smelling Salts in this instance has no negative effects'
     },
     neerDoWell: {
