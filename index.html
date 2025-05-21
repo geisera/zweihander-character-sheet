@@ -6,83 +6,75 @@
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>Character Sheet</title>
 </head>
-    <body>
-        <div id="controls-view" class="container">
-            <div class="view" id="roll">
-                <h3>Character Stats</h3>
-                <button id="roll-btn">Roll Character Stats</button>
-                <button id="print-btn" style="display:none" onclick="printCharacterSheet()">Print sheet</button>
-            </div>
-            <div class="view" id="mercy">
-                <h3>Mercy</h3>
-                <p>Every character is granted a reprieve as a circumstance of their birthright, whether by a fluke of nature, or the forebearance of an unknown god.</p>
-                <p>You may change any one Primary Attribute to 42.</p>
-                <p><i>-or-</i></p>
-                <p>You may swap the values of any two Primary Attributes.</p>
-                <p>This may do this now. Or, click 'Next' to wait until the end of Character Creation.</p>
+<body>
+    <div id="controls-view" class="container">
+        <!-- ── Stats ── -->
+        <div class="view" id="roll">
+            <h3>Character Stats</h3>
+            <button id="roll-btn">Roll Character Stats</button>
+            <button id="print-btn" style="display:none" onclick="printCharacterSheet()">Print sheet</button>
+        </div>
 
-                <button id="42-btn">I want to set one Primary Attribute value to 42</button>
-                <button id="swap-btn">I want to swap two Primary Attribute values</button>
-                <button id="wait-btn">I want to wait until the end of character creation</button>
+        <!-- ── Name / Gender / Ancestry ── -->
+        <div class="view" id="gender">
+            <div id="name-input" style="margin-bottom: 20px;">
+                <h4>Enter Character Name</h4>
+                <input type="text"
+                       id="character-name"
+                       name="character-name"
+                       placeholder="Your character's name"
+                       required>
             </div>
-            <div class="view" id="mercy-42">
-                <h3>Which Primary Attribute will you set to 42?</h3>
-                <div id="attribute-button-group" style="margin-top: 20px;">
-                    <button class="attribute-button" data-attr="combat">Combat</button>
-                    <button class="attribute-button" data-attr="brawn">Brawn</button>
-                    <button class="attribute-button" data-attr="agility">Agility</button>
-                    <button class="attribute-button" data-attr="perception">Perception</button>
-                    <button class="attribute-button" data-attr="intelligence">Intelligence</button>
-                    <button class="attribute-button" data-attr="willpower">Willpower</button>
-                    <button class="attribute-button" data-attr="fellowship">Fellowship</button>
-                </div>               
+
+            <div id="gender-selection">
+                <h4>Select Gender</h4>
+                <label><input type="radio" name="gender" value="man"   required> Male</label>
+                <label><input type="radio" name="gender" value="woman" required> Female</label>
             </div>
-            <div class="view" id="gender">
-                <div id="name-input" style="margin-bottom: 20px;">
-                    <h4>Enter Character Name</h4>
-                    <input type="text" id="character-name" name="character-name" placeholder="Your character's name" />
-                </div>
-                <div id="gender-selection">
-                    <h4>Select Gender</h4>
-                    <label><input type="radio" name="gender" value="man"> Male</label>
-                    <label><input type="radio" name="gender" value="woman"> Female</label>
-                </div>
-                <div id="ancestry-selection">
-                    <h4>Select Ancestry</h4>
-                    <label><input type="radio" name="ancestry" value="human" checked> Human</label>
-                    <label><input type="radio" name="ancestry" value="dwarf"> Dwarf</label>
-                    <label><input type="radio" name="ancestry" value="elf"> Elf</label>
-                    <label><input type="radio" name="ancestry" value="halfling"> Halfling</label>
-                    <label><input type="radio" name="ancestry" value="gnome"> Gnome</label>
-                    <label><input type="radio" name="ancestry" value="ogre"> Ogre</label>
-                </div>
-            </div>            
-            <div class="view" id="archetype">
-                <h3 for="archetype-select"><strong>Select Archetype</strong></h3>
-                <select id="archetype-select" name="archetype">
-                    <option value="">-- Select Archetype --</option>
-                    <option value="academic">Academic</option>
-                    <option value="commoner">Commoner</option>
-                    <option value="knave">Knave</option>
-                    <option value="ranger">Ranger</option>
-                    <option value="socialite">Socialite</option>
-                    <option value="warrior">Warrior</option>
-                </select>
-                <h3 for="profession-select"><strong>Select Profession</strong></h3>
-                <select id="profession-select" name="profession">
-                    <option value="">-- Select Profession --</option>
-                </select>
+
+            <div id="ancestry-selection">
+                <h4>Select Ancestry</h4>
+                <label><input type="radio" name="ancestry" value="human"   required> Human</label>
+                <label><input type="radio" name="ancestry" value="dwarf"   required> Dwarf</label>
+                <label><input type="radio" name="ancestry" value="elf"     required> Elf</label>
+                <label><input type="radio" name="ancestry" value="halfling" required> Halfling</label>
+                <label><input type="radio" name="ancestry" value="gnome"   required> Gnome</label>
+                <label><input type="radio" name="ancestry" value="ogre"    required> Ogre</label>
             </div>
-            <div class="sub-view" id="nav-buttons" style="margin-top: 20px;">
-                <hr>
-                <!-- <button id="back-button" style="display: inline-block; margin-right: 10px;">Back</button> -->
-                <button id="forward-btn" style="display: inline-block;">NEXT</button>
-            </div>
-        </div> 
-        <div id="character-sheet-view" class="container">
-            <div class="view" id="table">
-            </div>
-        </div>    
-        <script type="text/javascript" src="character-sheet.js"></script>
-    </body>
+        </div>
+
+        <!-- ── Archetype / Profession ── -->
+        <div class="view" id="archetype">
+            <h3><strong>Select Archetype</strong></h3>
+            <select id="archetype-select" name="archetype" required>
+                <option value="" disabled selected>-- Select Archetype --</option>
+                <option value="academic">Academic</option>
+                <option value="commoner">Commoner</option>
+                <option value="knave">Knave</option>
+                <option value="ranger">Ranger</option>
+                <option value="socialite">Socialite</option>
+                <option value="warrior">Warrior</option>
+            </select>
+
+            <h3><strong>Select Profession</strong></h3>
+            <select id="profession-select" name="profession" required>
+                <option value="" disabled selected>-- Select Profession --</option>
+                <!-- options injected by JS -->
+            </select>
+        </div>
+
+        <!-- ── Nav ── -->
+        <div class="nav-view" id="nav-buttons" style="margin-top: 20px;">
+            <hr>
+            <button id="forward-btn">NEXT</button>
+        </div>
+    </div>
+
+    <!-- ── Character Sheet Output ── -->
+    <div id="character-sheet-view" class="container">
+        <div class="view" id="table"></div>
+    </div>
+
+    <script type="text/javascript" src="character-sheet.js"></script>
+</body>
 </html>

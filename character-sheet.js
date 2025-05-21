@@ -3,17 +3,34 @@
 const viewIds = [
     'gender',
     'archetype',
-    'roll',
-    'mercy',
-    'mercy-42'
+    'roll'
 ];
+
 let currentViewIndex = 0;
+
+let showNext = true;
+
+function toggleNext () {
+    showNext != showNext;
+    console.log(showNext);
+}
+
+if(showNext){
+    document.getElementById('forward-btn').style.display = 'inline-block';
+} else if (!showNext) {
+    document.getElementById('forward-btn').style.display = 'none';
+}
 
 // Toggle visible views in controls-view
 function toggleView(viewId) {
     const allViews = document.querySelectorAll('#controls-view .view');
     allViews.forEach(view => {
         view.style.display = (view.id === viewId) ? 'block' : 'none';
+
+    if (viewId == 'roll'){
+        document.getElementById('forward-btn').style.display = 'none';
+    }
+    
     });
 }
 

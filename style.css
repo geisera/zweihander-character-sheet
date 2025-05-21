@@ -13,6 +13,13 @@ body {
   min-height: 100vh;
 }
 
+/* ────── NEW: radios stack vertically everywhere ────── */
+#gender-selection label,
+#ancestry-selection label {
+  display: block;        /* one per line */
+  margin-bottom: 6px;
+}
+
 /* ───────── Buttons ───────── */
 button {
   background: transparent;
@@ -21,16 +28,13 @@ button {
   color: #f4f6f9;
   border: 1px solid #f4f6f9;
   border-radius: 4px;
-  width: 100%;                 /* full‑width on phones */
+  width: 100%;
 }
-
 button:hover {
   border-color: #64a9fb;
   color: #64a9fb;
   cursor: pointer;
 }
-
-/* inline buttons on wider screens */
 @media (min-width: 600px) {
   button { width: auto; margin: 10px; }
 }
@@ -45,7 +49,6 @@ select {
   padding: 6px 12px;
   font-family: inherit;
 }
-
 input[type=text] {
   width: 40px;
   text-align: center;
@@ -60,7 +63,6 @@ input[type=text] {
   max-width: 500px;
   margin-top: 20px;
 }
-
 .attribute-button {
   padding: 10px;
   font-weight: bold;
@@ -70,34 +72,10 @@ input[type=text] {
   border-radius: 6px;
   text-align: center;
 }
-
 .attribute-button:hover {
   border-color: #64a9fb;
   color: #64a9fb;
 }
-
-/* ───────── Sidebar ───────── */
-.sidebar {
-  width: 100%;
-  max-width: 240px;
-  height: auto;               /* let it grow naturally on phones */
-  margin: 0 0 20px;
-  padding: 15px;
-  border: 1px solid #D3D9D4;
-  border-radius: 15px;
-  box-shadow: 4px 4px 30px rgba(255,255,255,.2);
-}
-
-.sidebar h2 { text-align: center; }
-.sidebar ul { list-style: none; padding: 0; }
-.sidebar ul li { padding: 10px 0; }
-.sidebar ul li a {
-  color: inherit;
-  text-decoration: none;
-  display: block;
-  padding: 10px;
-}
-.sidebar ul li a:hover { text-shadow: 0 0 20px #fff; }
 
 /* ───────── Containers ───────── */
 .container {
@@ -118,31 +96,18 @@ input[type=text] {
 }
 
 #character-name {
-  width: 100%;          /* full width of its parent */
-  box-sizing: border-box; /* keep padding inside the width */
+  width: 100%;
+  box-sizing: border-box;
   padding: 6px 12px;
   font-size: 16px;
 }
 
 /* nav bar sticks to bottom of its container */
-.sub-view {
-  position: absolute;
-  inset: auto 0 0 0;       /* shorthand for bottom:0; left:0; right:0 */
+.nav-view {
+  inset: auto 0 0 0;
   padding: 20px 30px;
   background: inherit;
 }
-
-/* ───────── Animations / helpers ───────── */
-/* (unchanged from your original; kept for continuity) */
-.fadeIn  { animation: fadeIn  .2s ease-in-out; }
-.fadeOut { animation: fadeOut .2s ease forwards; }
-
-@keyframes pulse   { 0%{transform:scale(1);opacity:1;} 50%{transform:scale(1.1);opacity:.7;} 100%{transform:scale(1);opacity:1;} }
-@keyframes wrong   { from{color:#D3D9D4;} to{color:red;} }
-@keyframes spin    { from{transform:rotate(0);} to{transform:rotate(360deg);} }
-@keyframes fadeIn  { from{opacity:0;} to{opacity:1;} }
-@keyframes fadeOut { from{opacity:1;} to{opacity:0;} }
-@keyframes textShadowAnimation{0%{text-shadow:0 0 1px #fff;}50%{text-shadow:0 0 15px #fff;}100%{text-shadow:0 0 1px #fff;}}
 
 /* ───────── Larger screens ───────── */
 @media (min-width: 768px) {
